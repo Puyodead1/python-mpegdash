@@ -390,7 +390,7 @@ class ContentComponent(XMLNode):
     def parse(self, xmlnode):
         self.id = parse_attr_value(xmlnode, 'id', int)
         self.lang = parse_attr_value(xmlnode, 'lang', str)
-        self.content_type = parse_attr_value(xmlnode, 'contentType', str)
+        self.mime_type = parse_attr_value(xmlnode, 'mimeType', str)
         self.par = parse_attr_value(xmlnode, 'par', str)
 
         self.accessibilities = parse_child_nodes(xmlnode, 'Accessibility', Descriptor)
@@ -401,7 +401,7 @@ class ContentComponent(XMLNode):
     def write(self, xmlnode):
         write_attr_value(xmlnode, 'id', self.id)
         write_attr_value(xmlnode, 'lang', self.lang)
-        write_attr_value(xmlnode, 'contentType', self.content_type)
+        write_attr_value(xmlnode, 'mimeType', self.mime_type)
         write_attr_value(xmlnode, 'par', self.par)
 
         write_child_node(xmlnode, 'Accessibility', self.accessibilities)
@@ -602,7 +602,7 @@ class AdaptationSet(RepresentationBase):
         self.group = parse_attr_value(xmlnode, 'group', int)
         self.lang = parse_attr_value(xmlnode, 'lang', str)
         self.label = parse_attr_value(xmlnode, 'label', str)
-        self.content_type = parse_attr_value(xmlnode, 'contentType', str)
+        self.mime_type = parse_attr_value(xmlnode, 'mimeType', str)
         self.par = parse_attr_value(xmlnode, 'par', str)
         self.min_bandwidth = parse_attr_value(xmlnode, 'minBandwidth', int)
         self.max_bandwidth = parse_attr_value(xmlnode, 'maxBandwidth', int)
@@ -636,7 +636,7 @@ class AdaptationSet(RepresentationBase):
         write_attr_value(xmlnode, 'group', self.group)
         write_attr_value(xmlnode, 'lang', self.lang)
         write_attr_value(xmlnode, 'label', self.label)
-        write_attr_value(xmlnode, 'contentType', self.content_type)
+        write_attr_value(xmlnode, 'mimeType', self.mime_type)
         write_attr_value(xmlnode, 'par', self.par)
         write_attr_value(xmlnode, 'minBandwidth', self.min_bandwidth)
         write_attr_value(xmlnode, 'maxBandwidth', self.max_bandwidth)
